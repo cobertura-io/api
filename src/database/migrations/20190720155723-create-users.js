@@ -44,7 +44,7 @@ module.exports = {
       fk_gender: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {         // User belongsTo Company 1:1
+        references: {
           model: 'Genders',
           key: 'pk_gender'
         }
@@ -68,11 +68,17 @@ module.exports = {
       email_verified: {
         allowNull: true,
         type: Sequelize.BOOLEAN
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updtedAt: {
+        type: Sequelize.DATE
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Genders')
+    return queryInterface.dropTable('Users')
   }
 };
